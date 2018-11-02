@@ -9,6 +9,7 @@ import { AlbumItemComponent } from '../components/artist/albums-list/album-item/
 import { AlbumComponent } from '../components/album/album.component';
 import { SongListComponent } from '../components/album/song-list/song-list.component';
 import { SongItemComponent } from '../components/album/song-list/song-item/song-item.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,9 +18,25 @@ import { SongItemComponent } from '../components/album/song-list/song-item/song-
     FavoriteSongComponent, 
     ArtistComponent, 
     AlbumsListComponent, 
-    AlbumItemComponent, AlbumComponent, SongListComponent, SongItemComponent],
+    AlbumItemComponent, 
+    AlbumComponent, 
+    SongListComponent, 
+    SongItemComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
+  ],
+  exports: [
+    HomeComponent, 
+    FavoritesListComponent, 
+    FavoriteSongComponent, 
+    ArtistComponent, 
+    AlbumsListComponent, 
+    AlbumItemComponent, 
+    AlbumComponent, 
+    SongListComponent, 
+    SongItemComponent
   ]
 })
 export class SpotysearchModule { }
