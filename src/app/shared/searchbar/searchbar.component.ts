@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Artist } from '../../models/artist.model';
+import { FormControl } from '@angular/forms';
+import { SpotifyService } from 'src/app/services/spotify.service';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators'
+
 
 @Component({
   selector: 'app-searchbar',
@@ -8,27 +12,36 @@ import { Observable } from 'rxjs';
 })
 export class SearchbarComponent implements OnInit {
 
-  items = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-  ];
-
-  number = new Observable<number>();
+  results: Artist[] = [];
+  queryField: FormControl = new FormControl();
 
   constructor(
-    
+    private spotify: SpotifyService
   ) {
-    this.number.subscribe((data) => {
-      console.log(data);
-    })
+    
   }
 
   ngOnInit() {
+    this.queryField.valueChanges.pipe(
+      debounceTime(200),
+      distinctUntilChanged(),
+      switchMap((queryString) => queryString !== '' ? this.spotify.searchArtist(queryString):[])
+    ).subscribe(   
+      (response: any) => {
+        console.log('RESPONSE',response)
+        this.results = response.artists.items.length > 0 ? response.artists.items:[]
+        console.log(this.results)
+      },
+      (error) => {
+        console.error(error);
+        this.results = []
+      }   
+    )
+  }
+
+  artistSelected(id: string) {
+    console.log(id);
+    this.results = [];
   }
 
  

@@ -1,4 +1,19 @@
-<ng-select
-  [items]="items"
-  [typeahead]="number">
-</ng-select>
+<section class="artist-search">
+
+    <div class="input-wrapper">
+        <input 
+            [formControl]="queryField" 
+            type="text" 
+            name="queryString" 
+            id="query-string" 
+            placeholder="Search Artist..."
+            autofocus>
+    </div>
+    <ul class="filter-select">
+        <li *ngFor="let result of results" class="artist-item" (click)="artistSelected(result.id)">
+            <img class="list-artist-img" [src]="result.images[2]?.url" alt="">
+            <p class="artist-name">{{result.name}}</p>
+        </li>
+    </ul>
+
+</section>

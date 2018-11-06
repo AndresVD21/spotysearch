@@ -1,22 +1,79 @@
 @import "../../styles/abstracts/variables";
 
-.searchbar {
-
+.artist-search {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-  .input-searchbar {
-    border: 1px solid #ccc;
-    padding: 10px;
-    width: 50%;
-    outline: none;
-  
-    &:focus {
-      border-color: $color-primary;
-    }
+  justify-content: center;
+  min-height: 100%;
+  position: relative;
+  margin-top: 1rem;
 
-    
+  .input-wrapper {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    #query-string {
+      border: 0.2rem solid $color-grey-dark;
+      padding: 1rem;
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      width: 50%;
+      border-radius: 2rem;
+      outline: none;
+      transition: border 0.5s ease-in-out;
+
+      &:focus {
+        border-color: $color-primary;
+      }
+    }
+  }
+
+  .filter-select {
+    width: 45%;
+    list-style: none;
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: $color-grey-dark;
+    border: 1px solid $color-grey-dark;
+    border-top: none;
+    /*so things don't jump around*/
+    position: absolute;
+    top: calc(50% + 23px);
+    overflow-y: auto;
+    background: #fff;
+    z-index: 100;
+    padding: 0.5rem;
+
+    .artist-item {
+
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+
+      .list-artist-img {
+        width: 5rem;
+        height: 5rem;
+        margin-right: 2rem;
+      }
+
+      .artist-name {
+        display: inline-block;
+      }
+
+      &:hover {
+        background-color: $color-grey-dark;
+        color: $color-white;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
+    }
   }
 }
 

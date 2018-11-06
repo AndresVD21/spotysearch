@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { HttpClientModule } from '@angular/common/http'
+import { SpotifyService } from '../services/spotify.service';
 
 
 @NgModule({
@@ -13,10 +15,14 @@ import { NgSelectModule } from '@ng-select/ng-select';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgSelectModule
+    NgSelectModule,
+    HttpClientModule
   ],
   exports: [
     SearchbarComponent
+  ],
+  providers: [
+    SpotifyService
   ]
 })
 export class SharedModule { }
