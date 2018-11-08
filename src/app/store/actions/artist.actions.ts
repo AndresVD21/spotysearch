@@ -29,6 +29,7 @@ export class GetArtistFail implements Action {
 
 export class GetArtistAlbums implements Action {
     readonly type = GET_ARTIST_ALBUMS;
+    constructor(public id: string) {}
 }
 
 export class GetArtistAlbumsOk implements Action {

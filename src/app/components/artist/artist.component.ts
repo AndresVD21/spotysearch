@@ -4,6 +4,7 @@ import { AppState } from 'src/app/store/app.reducer';
 import { Artist } from 'src/app/models/artist.model';
 import { Album } from '../../models/album.model';
 import { Router } from '@angular/router';
+import { GetArtistAlbums } from '../../store/actions/artist.actions';
 
 @Component({
   selector: 'app-artist',
@@ -28,6 +29,7 @@ export class ArtistComponent implements OnInit {
         this.albums = artist.albums;
         if (artist.artist) {
           this.artistGenres = artist.artist.genres.join('|').replace(/\|/g, ' | ');
+          // this.store.dispatch(new GetArtistAlbums(artist.artist.id));
         }
       });
   }

@@ -64,7 +64,7 @@ export function artistReducer(state = initState, action: fromArtist.artistAction
                 loading: false,
                 error: {
                     status: action.error.status,
-                    message: action.error.error.message,
+                    message: action.error.message,
                     url: action.error.url
                 }
             };

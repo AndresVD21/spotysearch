@@ -10,13 +10,15 @@ export class SpotifyService {
 
   // private clientID: string = '0c90724e066946bbb071560437c97a06';
   private baseURL: string = `https://api.spotify.com/v1`;
-  private accessToken: string = 'BQBXReUoWqVzbcE2WTzYAlJU5PYSiwB42Xa41L8S_x8i4yPeoZNj_A983kX06OhlFu1CKDksx2DmSZvo25NsKUFrO8es8MPUG2F-m3p3y_GoDtb-wBIZcCa2Pcx18CDIsty6SGpN6QMpxyIw1frK2zaulrH3cGZi';
+  private accessToken: string = 'BQAyiabLyGPsSV4Do26xDpU6IpACSQYayRFgPrWDCIQnvmwWRcUZV4pvUkqeyTTzI4dE7_8GZKgVuIHEmiWwfgtk8-Inj36XXeFvZivwQUcMbip7cOodDXYulcoKerfmhamK8mrtTyFn0zUxah-bgCYLQY8WPAMN';
 
   httpOptions = {
     headers: new HttpHeaders({
       'Authorization': `Bearer ${this.accessToken}`
     })
   };
+
+  //https://api.spotify.com/v1/artists/66CXWjxzNUsdJxJ2JdwvnR/albums?limit=4&market=CO
 
   constructor(
     private http: HttpClient
@@ -28,6 +30,10 @@ export class SpotifyService {
 
   searchArtist(id: string) {
     return this.http.get(`${this.baseURL}/artists/${id}`, this.httpOptions);
+  }
+
+  searchArtistAlbums(id: string) {
+    return this.http.get(`${this.baseURL}/artists/${id}/albums?market=CO`, this.httpOptions);
   }
 
 
