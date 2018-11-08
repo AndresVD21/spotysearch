@@ -13,7 +13,20 @@ body {
     letter-spacing: 3rem;
 }
 
+.heading-secondary {
+    color: $color-black;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 400;
+    // letter-spacing: 1rem;
+}
+
 .info {
     font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.info-sm {
+    font-size: 1rem;
     font-weight: 400;
 }

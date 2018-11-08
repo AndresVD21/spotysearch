@@ -1,10 +1,15 @@
 @import '../../styles/abstracts/variables';
 
+.artist-wrapper {
+    margin-top: 12rem;
+}
+
 .artist-info-wrapper {
     margin: 2rem;
     box-shadow: 0 .3rem 2rem rgba($color-grey-dark, 1);
     display: flex;
     align-items: center;
+    
     // padding: 1.5rem;
     // justify-content: space-around;
 
@@ -23,12 +28,12 @@
             }
         }
     }
-
-
     .heading-primary {
         color: $color-black;
         letter-spacing: 1.5rem;
     }
+}
 
-
+.artist-albums-wrapper {
+    padding: 2rem;
 }

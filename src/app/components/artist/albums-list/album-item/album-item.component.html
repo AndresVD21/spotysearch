@@ -1,3 +1,9 @@
-<p>
-  album-item works!
-</p>
+<div class="album-item" *ngIf="album">
+  <div class="album-info">
+    <img class="album-img" [src]="album.images[1].url" alt="">
+    <div class="album-text">
+      <h2 class="heading-secondary">{{album.name}}</h2>
+      <p class="info-sm">{{album.release_date | date}}</p>
+    </div>
+  </div>
+</div>
