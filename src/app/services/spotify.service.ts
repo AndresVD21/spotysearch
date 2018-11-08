@@ -9,8 +9,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class SpotifyService {
 
   // private clientID: string = '0c90724e066946bbb071560437c97a06';
-  private baseURL: string = `https://api.spotify.com/v1/search?type=artist&limit=5`;
-  private accessToken: string = 'BQCGMfQK3GXA9m9vlWskoWjT-hpcHrz--G0SVM5j_d8CMiRB9QeF9LWyuORub61VvFQ9HpChbYHRQpV32cCygkL7U514bTXtgKNjjjIsO9i-N2ZreZZP9DACZXlhsHrP8YmqsVwKhBPFJjnfh5BZZ0RElG_xeCGI';
+  private baseURL: string = `https://api.spotify.com/v1`;
+  private accessToken: string = 'BQBXReUoWqVzbcE2WTzYAlJU5PYSiwB42Xa41L8S_x8i4yPeoZNj_A983kX06OhlFu1CKDksx2DmSZvo25NsKUFrO8es8MPUG2F-m3p3y_GoDtb-wBIZcCa2Pcx18CDIsty6SGpN6QMpxyIw1frK2zaulrH3cGZi';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -22,8 +22,13 @@ export class SpotifyService {
     private http: HttpClient
   ) { }
 
-  searchArtist(queryString: string) {
-    // console.log(queryString)
-    return this.http.get(`${this.baseURL}&q=${queryString.replace(' ','+')}`, this.httpOptions)
+  searchArtists(queryString: string) {
+    return this.http.get(`${this.baseURL}/search?type=artist&limit=5&q=${queryString.replace(' ','+')}`, this.httpOptions);
   }
+
+  searchArtist(id: string) {
+    return this.http.get(`${this.baseURL}/artists/${id}`, this.httpOptions);
+  }
+
+
 }

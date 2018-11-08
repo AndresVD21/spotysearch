@@ -1,12 +1,15 @@
 <div class="row">
     <div class="col">
         <nav class="nav-home">
-            <div class="logo-box">
-                <img class="logo" src="./../../../assets/logo.png" alt="logo">
+            <div class="logo-text-wrapper">
+                <div class="logo-box">
+                    <img class="logo" src="./../../../assets/logo.png" alt="logo">
+                </div>
+                <h1 class="heading-primary">SpotySearch</h1>
             </div>
-            <h1 class="heading-primary">SpotySearch</h1>
+            <!-- <button class="btn btn-auth" (click)="refreshToken()">REFRESH TOKEN</button> -->
         </nav>
     </div>
 </div>
-<app-searchbar></app-searchbar>
-<app-favorites-list></app-favorites-list>
+<app-searchbar [inToolbar]="false"></app-searchbar>
+<!-- <app-favorites-list></app-favorites-list> -->

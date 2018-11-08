@@ -1,0 +1,24 @@
+.nav-home{
+    padding: 3rem;
+    font-size: 2rem;
+    background-color: $color-black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo-text-wrapper {
+
+        display: flex;
+
+        .logo-box {
+            // display: inline-block;
+            display: flex;
+            align-items: center;
+            margin-right: 3rem;
+    
+            .logo {
+                height: 5rem;
+            }
+        }
+    }
+
+}

@@ -12,6 +12,7 @@
     position: relative;
     display: flex;
     justify-content: center;
+    padding: 0 10rem;
 
     #query-string {
       border: 0.2rem solid $color-grey-dark;
@@ -19,7 +20,7 @@
       font-family: "Roboto", sans-serif;
       font-weight: 400;
       line-height: 1.7;
-      width: 50%;
+      width: 100%;
       border-radius: 2rem;
       outline: none;
       transition: border 0.5s ease-in-out;
@@ -38,15 +39,15 @@
     font-weight: 400;
     line-height: 1.7;
     color: $color-grey-dark;
-    border: 1px solid $color-grey-dark;
     border-top: none;
     /*so things don't jump around*/
     position: absolute;
-    top: calc(50% + 23px);
+    top: calc(100%);
     overflow-y: auto;
     background: #fff;
     z-index: 100;
     padding: 0.5rem;
+    box-shadow: 0 .5rem 1.5rem rgba($color-grey-dark, 1);
 
     .artist-item {
 

@@ -2,24 +2,27 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgSelectModule } from '@ng-select/ng-select';
 import { HttpClientModule } from '@angular/common/http'
 import { SpotifyService } from '../services/spotify.service';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
-    SearchbarComponent
+    SearchbarComponent,
+    ToolbarComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
   ],
   exports: [
-    SearchbarComponent
+    SearchbarComponent,
+    ToolbarComponent
   ],
   providers: [
     SpotifyService

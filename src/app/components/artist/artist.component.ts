@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.reducer';
+import { Artist } from 'src/app/models/artist.model';
+import { Album } from '../../models/album.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-artist',
@@ -7,9 +12,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtistComponent implements OnInit {
 
-  constructor() { }
+  artist: Artist;
+  albums: Album[];
+  artistGenres: string;
+
+  constructor(
+    private store: Store<AppState>,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.store.select('artist')
+      .subscribe(artist => {
+        this.artist = artist.artist;
+        this.albums = artist.albums;
+        if (artist.artist) {
+          this.artistGenres = artist.artist.genres.join('|').replace(/\|/g, ' | ');
+        }
+      });
+  }
+
+  goToArtist() {
+    this.router.navigate([this.artist.external_urls.spotify])
   }
 
 }

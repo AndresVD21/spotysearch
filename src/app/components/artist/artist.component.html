@@ -1,3 +1,10 @@
-<p>
-  artist works!
-</p>
+<app-toolbar></app-toolbar>
+<div class="artist-info-wrapper" *ngIf="artist">
+    <a [href]="artist.external_urls.spotify">
+        <img class="list-artist-img" [src]="artist.images[1].url" alt="">
+    </a>
+    <div class="artist-info">
+        <h1 class="heading-primary">{{artist.name}}</h1>
+        <p class="info"><strong>Genres:</strong> {{artistGenres}}</p>
+    </div>
+</div>

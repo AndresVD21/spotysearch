@@ -1,0 +1,21 @@
+@import '../../styles/abstracts/variables';
+
+.btn-auth {
+    background-color: $color-primary;
+    outline: none;
+    border: 0.1rem solid $color-primary-dark;
+    border-radius: 10rem;
+    padding: 1.5rem 4rem;
+    font-size: $default-font-size;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+
+    &:hover {
+        transform: translateY(-.1rem);
+        box-shadow: 0 .3rem 2rem rgba($color-grey-dark, 1);
+    }
+    &:active {
+        transform: translateY(-.1rem);
+        box-shadow: 0 .5rem 1rem rgba($color-grey-dark, .2);
+    }
+}

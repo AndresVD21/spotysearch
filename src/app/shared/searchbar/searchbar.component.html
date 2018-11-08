@@ -1,4 +1,4 @@
-<section class="artist-search">
+<section class="artist-search" [ngStyle]="{'margin-top': inToolbar ? '0' : '1rem' }">
 
     <div class="input-wrapper">
         <input 
@@ -9,7 +9,7 @@
             placeholder="Search Artist..."
             autofocus>
     </div>
-    <ul class="filter-select">
+    <ul class="filter-select" *ngIf="results.length > 0">
         <li *ngFor="let result of results" class="artist-item" (click)="artistSelected(result.id)">
             <img class="list-artist-img" [src]="result.images[2]?.url" alt="">
             <p class="artist-name">{{result.name}}</p>

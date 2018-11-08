@@ -10,6 +10,7 @@ import { AlbumComponent } from '../components/album/album.component';
 import { SongListComponent } from '../components/album/song-list/song-list.component';
 import { SongItemComponent } from '../components/album/song-list/song-item/song-item.component';
 import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports: [
     HomeComponent, 

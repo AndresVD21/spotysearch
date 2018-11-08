@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Artist } from '../../models/artist.model';
 import { FormControl } from '@angular/forms';
-import { SpotifyService } from 'src/app/services/spotify.service';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators'
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.reducer';
+import { GetArtists, ResetArtists } from '../../store/actions/artists.actions';
+import { GetArtist } from 'src/app/store/actions';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,33 +18,50 @@ export class SearchbarComponent implements OnInit {
 
   results: Artist[] = [];
   queryField: FormControl = new FormControl();
+  @Input() inToolbar: boolean;
 
   constructor(
-    private spotify: SpotifyService
+    private store: Store<AppState>,
+    private router: Router
   ) {
     
   }
 
   ngOnInit() {
+    this.queryFieldChanges();
+    this.store.select('artists')
+      .subscribe(artists => {
+        this.results = artists.artists;
+      })
+    this.store.select('artist')
+      .subscribe(artist => {
+        if(artist.loaded && !artist.loading) {
+          this.store.dispatch(new ResetArtists());
+          this.router.navigate([`/artist/${artist.artist.id}`]);
+        }
+      })
+  }
+
+  queryFieldChanges() {
     this.queryField.valueChanges.pipe(
       debounceTime(200),
       distinctUntilChanged(),
-      switchMap((queryString) => queryString !== '' ? this.spotify.searchArtist(queryString):[])
-    ).subscribe(   
-      (response: any) => {
-        console.log('RESPONSE',response)
-        this.results = response.artists.items.length > 0 ? response.artists.items:[]
-        console.log(this.results)
-      },
-      (error) => {
-        console.error(error);
-        this.results = []
-      }   
-    )
+      switchMap((queryString) => {
+        if (queryString !== '') {
+          // return this.spotify.searchArtists(queryString);
+          this.store.dispatch(new GetArtists(queryString));
+          return [];
+        } else {
+          this.results = [];
+          return [];
+        }
+      })
+    ).subscribe()
   }
 
   artistSelected(id: string) {
     console.log(id);
+    this.store.dispatch(new GetArtist(id));
     this.results = [];
   }
 
