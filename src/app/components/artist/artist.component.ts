@@ -3,8 +3,8 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import { Artist } from 'src/app/models/artist.model';
 import { Album } from '../../models/album.model';
-import { Router } from '@angular/router';
-import { GetArtistAlbums } from '../../store/actions/artist.actions';
+import { Router, ActivatedRoute } from '@angular/router';
+import { GetArtistAlbums, GetArtist } from '../../store/actions/artist.actions';
 
 @Component({
   selector: 'app-artist',
@@ -14,15 +14,21 @@ import { GetArtistAlbums } from '../../store/actions/artist.actions';
 export class ArtistComponent implements OnInit {
 
   artist: Artist;
+  artistID: string;
   albums: Album[];
   artistGenres: string;
 
   constructor(
     private store: Store<AppState>,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.artistID = params['id'];
+      this.store.dispatch(new GetArtist(this.artistID));
+    })
     this.store.select('artist')
       .subscribe(artist => {
         this.artist = artist.artist;

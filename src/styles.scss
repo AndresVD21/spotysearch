@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+@import "node_modules/loaders.css/src/loaders";
 
 @import './app/styles/abstracts/variables';
 
@@ -9,6 +10,11 @@
 @import './app/styles/components/button';
 @import './app/styles/components/navbar';
 
+
+.loader .my-loader {
+    background: $color-black;
+    background-color: $color-black;
+}
 
 
 

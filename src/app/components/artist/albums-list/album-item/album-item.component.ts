@@ -15,4 +15,8 @@ export class AlbumItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  albumSelected(id: string) {
+    console.log(id);
+  }
+
 }
