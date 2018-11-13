@@ -10,7 +10,7 @@ export class SpotifyService {
 
   // private clientID: string = '0c90724e066946bbb071560437c97a06';
   private baseURL: string = `https://api.spotify.com/v1`;
-  private accessToken: string = 'BQDL-3_22fVkILePSmssc4v0fN4w2mzSxW6NggwbuPmz25Ohzly_61SgkNIb1kwud6jdhLFKue13aOF7IZPKodHPzFDIib4SrZHPACuDAa97Vem6ooNh-uPqvUEquL2h1JFAXJXPFBvPtbywHiTjo0BWlC4OuxOO';
+  private accessToken: string = 'BQBtsg3RwaGB2ZO34DTgEyZqca7D_UWSuXWESmHUg-zmQsOokrbe3rxq9rDaIGRo3WRInek0EIDiB3imAuSqOnv6g7cZfKXJY3LqzoThnAv_6uhRfRDOowcYtApC-WwhtZSWX-LBIwuIIJCIjYTPSR6zb76fle0i';
 
   httpOptions = {
     headers: new HttpHeaders({
