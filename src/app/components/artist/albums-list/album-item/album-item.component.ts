@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Album } from '../../../../models/album.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-album-item',
@@ -10,13 +11,16 @@ export class AlbumItemComponent implements OnInit {
 
   @Input() album: Album;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
   albumSelected(id: string) {
     console.log(id);
+    this.router.navigate(['album',id]);
   }
 
 }
