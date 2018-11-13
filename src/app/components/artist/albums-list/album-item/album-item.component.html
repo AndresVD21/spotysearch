@@ -1,4 +1,4 @@
-<div class="album-item" *ngIf="album">
+<div class="album-item" *ngIf="album" (click)="albumSelected(album.id)">
   <div class="album-info">
     <img class="album-img" [src]="album.images[1].url" alt="">
     <div class="album-text">

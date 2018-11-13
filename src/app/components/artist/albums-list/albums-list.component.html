@@ -1,8 +1,6 @@
-<!-- <p *ngFor="let album of albums">{{album.images[2].url}}</p> -->
-<!-- <img *ngFor="let album of albums" class="list-artist-img" [src]="album.images[2].url" alt=""> -->
-<div class="album-list">
-    <!-- <app-album-item [album]="albums[0]"></app-album-item>
-    <app-album-item [album]="albums[2]"></app-album-item>
-    <app-album-item [album]="albums[3]"></app-album-item> -->
+<div class="album-list" *ngIf="loaded">
     <app-album-item *ngFor="let album of albums" [album]="album"></app-album-item>
+</div>
+<div class="div-loader" *ngIf="loading && !loaded">
+    <loaders-css [loader]="'ball-scale-multiple'" [loaderClass]="'my-loader'"></loaders-css>
 </div>

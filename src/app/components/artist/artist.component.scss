@@ -20,6 +20,7 @@
         .list-artist-img {
             margin-right: 5rem;
             transition: all .2s;
+            height: 32rem;
     
             &:hover {
                 outline: 0.5rem solid $color-primary;

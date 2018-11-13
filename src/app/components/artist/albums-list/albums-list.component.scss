@@ -1,5 +1,14 @@
+@import '../../../styles/abstracts/variables';
+
 .album-list {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.div-loader {
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

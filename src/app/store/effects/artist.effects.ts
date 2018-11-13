@@ -48,7 +48,7 @@ export class ArtistEffects {
                 return this.spotify.searchArtistAlbums(id)
                     .pipe(
                         map((albums: any) => {
-                            console.log(albums)
+                            // console.log(albums)
                             const albumArr = albums.items
                             return new artistActions.GetArtistAlbumsOk(albumArr)
                         }),

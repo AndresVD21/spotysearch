@@ -26,6 +26,7 @@
     "@ngrx/store": "^6.1.2",
     "@ngrx/store-devtools": "^6.1.2",
     "@toverux/ngx-sweetalert2": "^4.0.0",
+    "angular2-loaders-css": "^2.0.1",
     "core-js": "^2.5.4",
     "ng2-select": "^2.0.0",
     "rxjs": "~6.3.3",

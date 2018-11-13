@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
+import { LoadersCssModule } from 'angular2-loaders-css';
+
 import { HomeComponent } from '../components/home/home.component';
 import { FavoritesListComponent } from '../components/home/favorites-list/favorites-list.component';
 import { FavoriteSongComponent } from '../components/home/favorites-list/favorite-song/favorite-song.component';
@@ -9,8 +13,6 @@ import { AlbumItemComponent } from '../components/artist/albums-list/album-item/
 import { AlbumComponent } from '../components/album/album.component';
 import { SongListComponent } from '../components/album/song-list/song-list.component';
 import { SongItemComponent } from '../components/album/song-list/song-item/song-item.component';
-import { SharedModule } from '../shared/shared.module';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    LoadersCssModule
   ],
   exports: [
     HomeComponent, 
