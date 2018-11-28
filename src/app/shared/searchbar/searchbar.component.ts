@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import { GetArtists, ResetArtists } from '../../store/actions/artists.actions';
 import { GetArtist } from 'src/app/store/actions';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -22,7 +22,8 @@ export class SearchbarComponent implements OnInit {
 
   constructor(
     private store: Store<AppState>,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     
   }
@@ -33,13 +34,13 @@ export class SearchbarComponent implements OnInit {
       .subscribe(artists => {
         this.results = artists.artists;
       })
-    this.store.select('artist')
-      .subscribe(artist => {
-        if(artist.loaded && !artist.loading) {
-          this.store.dispatch(new ResetArtists());
-          this.router.navigate([`/artist/${artist.artist.id}`]);
-        }
-      })
+    // this.store.select('artist')
+    //   .subscribe(artist => {
+    //     if(artist.loaded && !artist.loading) {
+    //       this.store.dispatch(new ResetArtists());
+    //       this.router.navigate([`/artist/${artist.artist.id}`]);
+    //     }
+    //   })
   }
 
   queryFieldChanges() {
@@ -62,6 +63,11 @@ export class SearchbarComponent implements OnInit {
   artistSelected(id: string) {
     console.log(id);
     this.store.dispatch(new GetArtist(id));
+    this.router.navigate([`/artist/${id}`]).then(
+      () => {
+        this.store.dispatch(new ResetArtists());
+      }
+    );
     this.results = [];
   }
 
