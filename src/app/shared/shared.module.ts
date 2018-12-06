@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { SpotifyService } from '../services/spotify.service';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
+    FontAwesomeModule
   ],
   exports: [
     SearchbarComponent,

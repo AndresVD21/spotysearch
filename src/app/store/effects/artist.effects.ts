@@ -49,7 +49,7 @@ export class ArtistEffects {
                     .pipe(
                         map((albums: any) => {
                             // console.log(albums)
-                            const albumArr = albums.items
+                            const albumArr = albums.items;
                             return new artistActions.GetArtistAlbumsOk(albumArr)
                         }),
                         catchError(error => {

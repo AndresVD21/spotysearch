@@ -61,7 +61,6 @@ export class SearchbarComponent implements OnInit {
   }
 
   artistSelected(id: string) {
-    console.log(id);
     this.store.dispatch(new GetArtist(id));
     this.router.navigate([`/artist/${id}`]).then(
       () => {

@@ -3,6 +3,8 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import { ActivatedRoute } from '@angular/router';
 import { Album } from '../../models/album.model';
+import { GetAlbum } from 'src/app/store/actions';
+import { Track } from '../../models/track.model';
 
 @Component({
   selector: 'app-album',
@@ -12,7 +14,10 @@ import { Album } from '../../models/album.model';
 export class AlbumComponent implements OnInit {
 
   albumID: string;
-  album: Album
+  album: Album;
+  albumTracks: Track[];
+  loading: boolean;
+  loaded: boolean;
 
   constructor(
     private store: Store<AppState>,
@@ -20,13 +25,17 @@ export class AlbumComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-    // this.store.select()
     this.route.params.subscribe(params => {
       this.albumID = params['id'];
-      console.log(this.albumID)
-
+      this.store.dispatch(new GetAlbum(this.albumID))
     })
+    this.store.select('album')
+      .subscribe(album => {
+        this.album = album.album;
+        this.albumTracks = album.songs;
+        this.loading = album.loading;
+        this.loaded = album.loaded;
+      })
   }
 
 }

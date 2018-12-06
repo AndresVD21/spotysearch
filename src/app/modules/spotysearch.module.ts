@@ -13,6 +13,7 @@ import { AlbumItemComponent } from '../components/artist/albums-list/album-item/
 import { AlbumComponent } from '../components/album/album.component';
 import { SongListComponent } from '../components/album/song-list/song-list.component';
 import { SongItemComponent } from '../components/album/song-list/song-item/song-item.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SongItemComponent } from '../components/album/song-list/song-item/song-
     CommonModule,
     SharedModule,
     RouterModule,
-    LoadersCssModule
+    LoadersCssModule,
+    FontAwesomeModule
   ],
   exports: [
     HomeComponent, 

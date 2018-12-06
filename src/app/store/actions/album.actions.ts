@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { Album } from '../../models/album.model';
+import { Track } from '../../models/track.model';
 
 
 export const GET_ALBUM = '[Album] Get Album';
@@ -31,7 +32,7 @@ export class GetAlbumSongs implements Action {
 
 export class GetAlbumSongsOk implements Action {
     readonly type = GET_ALBUM_SONGS_OK;
-    constructor(public songs: any) {}
+    constructor(public songs: Track[]) {}
 }
 
 export class GetAlbumSongsFail implements Action {

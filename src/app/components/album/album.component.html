@@ -1,4 +1,18 @@
 <app-toolbar></app-toolbar>
-<div class="album-wrapper">
-    <h1>ALBUM ID: {{albumID}}</h1>
+<div class="div-loader" *ngIf="loading && !loaded">
+    <loaders-css [loader]="'ball-scale-multiple'" [loaderClass]="'my-loader'"></loaders-css>
+</div>
+<div class="album-wrapper" *ngIf="loaded">
+    <div class="album-info-wrapper" *ngIf="album">
+        <a [href]="album.external_urls.spotify">
+            <img class="album-img" [src]="album.images[1].url" alt="">
+        </a>
+        <div class="album-info">
+            <h1 class="heading-primary">{{album.name}}</h1>
+            <p class="info"><strong>Release Date:</strong> {{album.release_date}}</p>
+        </div>
+    </div>
+    <div class="album-tracks-wrapper">
+        <app-song-list [tracks]="albumTracks"></app-song-list>
+    </div>
 </div>

@@ -1,3 +1,13 @@
-<p>
-  song-item works!
-</p>
+<div class="track-item" id="track-item" *ngIf="track" (click)="trackClicked($event)">
+    <div class="track-info">
+            <!-- <fa-icon class="play-btn" id="play-btn" [icon]="faPlayCircle" size="4x" (click)="playSong($event)"></fa-icon> -->
+        <p class="song-name">{{track.name}}</p>
+    </div>
+    <div class="audio-wrapper">
+        <audio *ngIf="track.preview_url" controls [src]="track.preview_url">
+            Your browser does not support the
+            <code>audio</code> element.
+        </audio>
+        <p *ngIf="!track.preview_url">This song don't have preview</p>
+    </div>
+</div>

@@ -42,6 +42,32 @@ export function albumReducer(state = initState, action: fromAlbum.albumActions) 
                     url: action.error.url
                 }
             }
+
+        case fromAlbum.GET_ALBUM_SONGS:
+            return {
+                ...state,
+                loading: true
+            }
+        
+        case fromAlbum.GET_ALBUM_SONGS_OK:
+            return {
+                ...state,
+                loaded: true,
+                loading: false,
+                songs: [...action.songs]
+            }
+
+        case fromAlbum.GET_ALBUM_SONGS_FAIL:
+            return {
+                ...state,
+                loaded: true,
+                loading: false,
+                error: {
+                    status: action.error.status,
+                    message: action.error.error.message,
+                    url: action.error.url
+                }
+            }
             
     
         default:
