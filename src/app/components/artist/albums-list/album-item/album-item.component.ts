@@ -24,7 +24,6 @@ export class AlbumItemComponent implements OnInit {
   }
 
   albumSelected(id: string) {
-    console.log(id);
     this.router.navigate([`album/${id}`]);
     this.store.dispatch(new GetAlbumOk(this.album));
   }

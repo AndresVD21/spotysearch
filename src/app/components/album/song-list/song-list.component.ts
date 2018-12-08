@@ -9,6 +9,7 @@ import { Track } from '../../../models/track.model';
 export class SongListComponent implements OnInit {
 
   @Input() tracks: Track[];
+  @Input() albumName: string;
 
   constructor() { }
 

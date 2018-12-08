@@ -1,32 +1,35 @@
 @import "../../../../styles/abstracts/variables";
-
 .track-item {
-  display: flex;
-  height: 8rem;
-  align-items: center;
-  padding: 1rem;
-  cursor: pointer;
-  justify-content: space-between;
-
-  .play-btn {
-      cursor: pointer;
-  }
-
-  .track-info {
-    margin-left: 2rem;
-    p {
-      font-size: 1.3rem;
-      letter-spacing: 0.5rem;
-      text-transform: uppercase;
+    display: flex;
+    height: 8rem;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+    justify-content: space-between;
+    .play-btn {
+        cursor: pointer;
     }
-  }
-
-  .audio-wrapper {
-      margin-left: 1rem;
-  }
-
-  &:hover {
-    transform: scale(1.02);
-    box-shadow: 0.5rem 0.5rem 4rem rgba($color-black, 0.5);
-  }
+    .track-info {
+        margin-left: 2rem;
+        p {
+            font-size: 1.3rem;
+            letter-spacing: 0.5rem;
+            text-transform: uppercase;
+        }
+    }
+    .audio-wrapper {
+        margin-left: 1rem;
+        display: flex;
+        align-items: center;
+        audio {
+            margin-right: 3rem;
+        }
+        p {
+            margin-right: 3rem;
+        }
+    }
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 0.5rem 0.5rem 4rem rgba($color-black, 0.5);
+    }
 }

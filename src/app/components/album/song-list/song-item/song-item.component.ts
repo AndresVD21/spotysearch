@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Track } from '../../../../models/track.model';
-import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPlayCircle, faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-song-item',
@@ -10,16 +10,47 @@ import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 export class SongItemComponent implements OnInit {
 
   @Input() track: Track;
+  @Input() albumName: string;
+
   faPlayCircle = faPlayCircle;
+  faStar = faStar;
+  isFavorite: boolean = false;
 
-  constructor() { }
+  constructor() {
 
-  ngOnInit() {
-    console.log(this.track)
   }
 
-  trackClicked(event) {
-    console.log('Track clicked', event.target['id'])
+  ngOnInit() {
+    this.verifyFavorite();
+    // console.log(this.track)
+  }
+
+  changeFavorite() {
+    this.isFavorite = !this.isFavorite;
+    if (this.isFavorite) {
+      let trackFormatted = {
+        ...this.track,
+        albumName: this.albumName
+      }
+      let favoriteTracks: Track[] = JSON.parse(localStorage.getItem('favoriteTracks'));
+      favoriteTracks.push(trackFormatted);
+      localStorage.setItem('favoriteTracks', JSON.stringify(favoriteTracks));
+    } else {
+      let favoriteTracks: Track[] = JSON.parse(localStorage.getItem('favoriteTracks'));
+      let favoriteTracksFiltered = favoriteTracks.filter((track: Track) => {
+        return this.track.id !== track.id;
+      })
+      localStorage.setItem('favoriteTracks', JSON.stringify(favoriteTracksFiltered));
+    }
+  }
+
+  verifyFavorite() {
+    let favoriteTracks: Track[] = JSON.parse(localStorage.getItem('favoriteTracks'));
+    favoriteTracks.map((track: Track) => {
+      if (this.track.id === track.id) {
+        this.isFavorite = true;
+      }
+    })
   }
 
 }

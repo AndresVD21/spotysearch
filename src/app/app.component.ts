@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from './store/app.reducer';
 import Swal from 'sweetalert2';
+import { Track } from './models/track.model';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,11 @@ export class AppComponent implements OnInit{
   ) {}
 
   ngOnInit() {
+    let favoriteTracks: Track[] = JSON.parse(localStorage.getItem('favoriteTracks'));
+    if(!favoriteTracks) {
+      favoriteTracks = []
+      localStorage.setItem('favoriteTracks', JSON.stringify(favoriteTracks));
+    }
     this.store.subscribe(
       state => {
         if (state.artists.error) {
