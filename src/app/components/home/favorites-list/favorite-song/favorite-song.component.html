@@ -1,4 +1,4 @@
-<div class="favorite-track" (click)="deleteFavoriteTrack()">
+<div class="favorite-track" (click)="albumClicked()">
   <div class="favorite-info-wrapper" *ngIf="track">
     <a [href]="track.external_urls.spotify">
       <img class="album-img" [src]="track.albumImg" alt="">
@@ -7,6 +7,12 @@
       <h1 class="heading-primary">{{track.name}}</h1>
       <p class="info"><strong>Album:</strong> {{track.albumName}}</p>
       <p class="info"><strong>Artist:</strong> {{artistName}}</p>
+    </div>
+    <div class="audio-preview">
+        <audio *ngIf="track.preview_url" controls [src]="track.preview_url">
+            Your browser does not support the
+            <code>audio</code> element.
+        </audio>
     </div>
   </div>
 </div>

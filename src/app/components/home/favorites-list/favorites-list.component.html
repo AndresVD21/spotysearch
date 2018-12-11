@@ -1,3 +1,11 @@
-<div class="favorite-song-wrapper">
-    <app-favorite-song *ngFor="let track of favoriteTracks" [track]="track"></app-favorite-song>
+<div class="favorite-list-wrapper">
+    <div class="favorite-title" *ngIf="favoriteTracks.length > 0">
+        <h1 class="heading-primary">Favorite Songs</h1>
+    </div>
+    <div class="favorite-title" *ngIf="favoriteTracks.length === 0">
+        <h1 class="heading-primary">Please Select Your Favorite Songs</h1>
+    </div>
+    <div class="favorite-song-wrapper">
+        <app-favorite-song *ngFor="let track of favoriteTracks" [track]="track"></app-favorite-song>
+    </div>
 </div>

@@ -13,7 +13,6 @@ export class FavoritesListComponent implements OnInit {
 
   ngOnInit() {
     this.favoriteTracks = JSON.parse(localStorage.getItem('favoriteTracks'));
-    console.log(this.favoriteTracks)
   }
 
 }

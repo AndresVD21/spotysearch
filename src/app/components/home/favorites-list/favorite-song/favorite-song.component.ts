@@ -18,11 +18,11 @@ export class FavoriteSongComponent implements OnInit {
   }
 
   deleteFavoriteTrack() {
-    let favoriteTracks: Track[] = JSON.parse(localStorage.getItem('favoriteTracks'));
-    let favoriteTracksFiltered = favoriteTracks.filter((track: Track) => {
-      return this.track.id !== track.id;
-    })
-    localStorage.setItem('favoriteTracks', JSON.stringify(favoriteTracksFiltered));
+    
+  }
+
+  albumClicked() {
+    console.log(this.track);
   }
 
 }
