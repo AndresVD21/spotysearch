@@ -10,10 +10,12 @@ export class SongListComponent implements OnInit {
 
   @Input() tracks: Track[];
   @Input() albumName: string;
+  @Input() albumImg: string;
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.albumImg)
   }
 
 }

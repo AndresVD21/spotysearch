@@ -68,6 +68,9 @@ export function albumReducer(state = initState, action: fromAlbum.albumActions) 
                     url: action.error.url
                 }
             }
+
+        case fromAlbum.RESET_ALBUM:
+            return initState;
             
     
         default:

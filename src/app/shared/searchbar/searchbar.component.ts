@@ -7,6 +7,7 @@ import { AppState } from 'src/app/store/app.reducer';
 import { GetArtists, ResetArtists } from '../../store/actions/artists.actions';
 import { GetArtist } from 'src/app/store/actions';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ResetAlbum } from '../../store/actions/album.actions';
 
 
 @Component({
@@ -65,6 +66,7 @@ export class SearchbarComponent implements OnInit {
     this.router.navigate([`/artist/${id}`]).then(
       () => {
         this.store.dispatch(new ResetArtists());
+        this.store.dispatch(new ResetAlbum());
       }
     );
     this.results = [];

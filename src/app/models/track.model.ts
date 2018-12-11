@@ -9,6 +9,7 @@ export class Track {
     is_playable: boolean;
     artists: Artist[];
     albumName: string;
+    albumImg: string;
 
     constructor(external_urls, id: string, name: string, preview_url: string, is_playable: boolean, artists: Artist[], albumName: string) {
         this.external_urls = external_urls;

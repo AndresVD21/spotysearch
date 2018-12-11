@@ -11,6 +11,7 @@ export class SongItemComponent implements OnInit {
 
   @Input() track: Track;
   @Input() albumName: string;
+  @Input() albumImg: string;
 
   faPlayCircle = faPlayCircle;
   faStar = faStar;
@@ -22,6 +23,7 @@ export class SongItemComponent implements OnInit {
 
   ngOnInit() {
     this.verifyFavorite();
+    console.log(this.albumImg)
     // console.log(this.track)
   }
 
@@ -30,8 +32,10 @@ export class SongItemComponent implements OnInit {
     if (this.isFavorite) {
       let trackFormatted = {
         ...this.track,
-        albumName: this.albumName
+        albumName: this.albumName,
+        albumImg: this.albumImg
       }
+      console.log(trackFormatted)
       let favoriteTracks: Track[] = JSON.parse(localStorage.getItem('favoriteTracks'));
       favoriteTracks.push(trackFormatted);
       localStorage.setItem('favoriteTracks', JSON.stringify(favoriteTracks));

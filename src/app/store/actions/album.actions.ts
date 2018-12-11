@@ -9,6 +9,7 @@ export const GET_ALBUM_FAIL = '[Album] Get Album Fail';
 export const GET_ALBUM_SONGS = '[Album] Get Album Songs';
 export const GET_ALBUM_SONGS_OK = '[Album] Get Album Songs Ok';
 export const GET_ALBUM_SONGS_FAIL = '[Album] Get Album Songs Fail';
+export const RESET_ALBUM = '[Album] Reset Album';
 
 export class GetAlbum implements Action {
     readonly type = GET_ALBUM;
@@ -40,12 +41,17 @@ export class GetAlbumSongsFail implements Action {
     constructor(public error: any) {}
 }
 
+export class ResetAlbum implements Action {
+    readonly type = RESET_ALBUM;
+}
+
 export type albumActions = GetAlbum
                         | GetAlbumOk
                         | GetAlbumFail
                         | GetAlbumSongs
                         | GetAlbumSongsOk
                         | GetAlbumSongsFail
+                        | ResetAlbum;
 
 
 

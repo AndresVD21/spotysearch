@@ -1,5 +1,12 @@
 <div class="favorite-track" (click)="deleteFavoriteTrack()">
-  <p>
-    {{track.name}} - {{track.albumName}} - {{artistName}}
-  </p>
+  <div class="favorite-info-wrapper" *ngIf="track">
+    <a [href]="track.external_urls.spotify">
+      <img class="album-img" [src]="track.albumImg" alt="">
+    </a>
+    <div class="favorite-track-info">
+      <h1 class="heading-primary">{{track.name}}</h1>
+      <p class="info"><strong>Album:</strong> {{track.albumName}}</p>
+      <p class="info"><strong>Artist:</strong> {{artistName}}</p>
+    </div>
+  </div>
 </div>

@@ -12,7 +12,7 @@
             <p class="info"><strong>Release Date:</strong> {{album.release_date}}</p>
         </div>
     </div>
-    <div class="album-tracks-wrapper">
-        <app-song-list [tracks]="albumTracks" [albumName]="album.name"></app-song-list>
+    <div class="album-tracks-wrapper" *ngIf="album">
+        <app-song-list [tracks]="albumTracks" [albumName]="album.name" [albumImg]="album.images[1].url"></app-song-list>
     </div>
 </div>
