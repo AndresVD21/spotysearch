@@ -1,23 +1,29 @@
 @import '../../../styles/abstracts/variables';
-
 .favorite-list-wrapper {
-
-
-
-    .favorite-song-wrapper {
-        margin: 2rem 5rem 0 5rem;
-        // margin-top: 2rem;
-        // margin-right: 5rem;
-        // margin-left: 5rem;
-    }
-
     .favorite-title {
-
-        margin: 5rem 7rem 0 7rem; 
-
+        margin: 1rem 7rem 0 7rem;
         .heading-primary {
             color: $color-black;
             letter-spacing: 1rem;
+        }
+    }
+    .favorite-song-wrapper {
+        margin: 2rem 5rem 0 5rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .favorite-list-wrapper {
+        .favorite-title {
+            margin: 1rem 1rem 0 1rem;
+            display: flex;
+            justify-content: center;
+            .heading-primary {
+                letter-spacing: normal;
+            }
+        }
+        .favorite-song-wrapper {
+            margin: 2rem 1rem 0 1rem;
         }
     }
 }

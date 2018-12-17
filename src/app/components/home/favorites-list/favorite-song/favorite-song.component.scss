@@ -48,3 +48,54 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .favorite-track {
+
+        width: 100%;
+        display: block;
+    
+        .audio-preview {
+            margin-left: 1rem;
+            margin-right: 1rem;
+    
+            audio {
+                width: 21rem;
+            }
+        }
+    
+        .favorite-info-wrapper {
+            margin: 2rem;
+            box-shadow: 0 .3rem 2rem rgba($color-grey-dark, 1);
+            display: flex;
+            align-items: center;
+            height: 15rem;
+            justify-content: space-between;
+            
+            // padding: 1.5rem;
+            // justify-content: space-around;
+            
+            a {
+                
+                display: flex;
+                
+                .album-img {
+                    margin-right: 2rem;
+                    transition: all .2s;
+                    height: 15rem;
+                    
+                    &:hover {
+                        outline: 0.5rem solid $color-primary;
+                        transform: scale(1.05);
+                        box-shadow: 0.5 0.5rem 4rem rgba($color-black, .5);
+                    }
+                }
+            }
+            .heading-primary {
+                color: $color-black;
+                letter-spacing: 0.5rem;
+                font-size: 2rem;
+            }
+        }
+    }
+}
